@@ -6,14 +6,11 @@ using Lesson10.Services;
 internal class Program
 {
     private static ProductsService? productsService;
-    private static Cart? cart;
+    private static Cart? cart = LoadData();
 
     private static void Main(string[] args)
     {
-        LoadData();
         productsService = new ProductsService();
-        CartItems item = new CartItems();
-        item.Quantity = 5;
 
         while (true)
         {
@@ -23,12 +20,11 @@ internal class Program
     }
 
 
-    static void LoadData()
+    static Cart LoadData()
     {
         // Load cart from previous session
         // update cart
-        cart = FileManagerService.Read();
-
+        return FileManagerService.Read();
     }
 
     static void ShowMenu()

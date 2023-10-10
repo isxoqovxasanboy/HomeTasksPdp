@@ -1,1 +1,2 @@
-{"TotalPrice":0,"TotalPriceDiscount":0,"_items":[{"Id":0,"Quantity":1,"TotalPrice":6000,"TotalPriceDiscount":5500,"Products":{"Id":2,"Name":"Fanta","Description":"Fanta shakarlik","Price":6000,"Discount":500,"PriceDiscount":5500}}]}
+{
+  "TotalPrice":0,"TotalPriceDiscount":0,"_items":[{"Id":0,"Quantity":12,"TotalPrice":60000,"TotalPriceDiscount":54000,"Products":{"Id":1,"Name":"Coca-Cola","Description":"Coca-cola shakarsiz","Price":5000,"Discount":500,"PriceDiscount":4500}},{"Id":0,"Quantity":5,"TotalPrice":30000,"TotalPriceDiscount":27500,"Products":{"Id":2,"Name":"Fanta","Description":"Fanta shakarlik","Price":6000,"Discount":500,"PriceDiscount":5500}}]}

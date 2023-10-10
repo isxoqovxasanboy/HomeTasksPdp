@@ -1,4 +1,5 @@
 ﻿using Lesson10.Models;
+//using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace Lesson10.Services;
@@ -9,15 +10,16 @@ namespace Lesson10.Services;
 public static class FileManagerService
 {
     private static string PathFile = @"D:\c#Projects\HomeTasksPdp\Lesson10\Lesson10\Repository\Base.json";
-
+    private static JsonSerializerOptions options = new JsonSerializerOptions
+    {
+        IncludeFields = true,
+        PropertyNameCaseInsensitive = true
+    };
     public static void Write(Cart cart)
     {
         using (StreamWriter sw = new StreamWriter(PathFile))
         {
-            var options = new JsonSerializerOptions
-            {
-                IncludeFields = true
-            };
+
             if (!File.Exists(PathFile))
             {
 
@@ -36,17 +38,20 @@ public static class FileManagerService
 
     public static Cart Read()
     {
-        using (StreamReader sr = new StreamReader(PathFile))
-        {
-            if (!File.Exists(PathFile))
-            {
-                return new Cart();
-            }
 
-            return JsonSerializer.Deserialize<Cart>(sr.ReadToEnd() ?? string.Empty,
-                new JsonSerializerOptions { IncludeFields = true })
-                ?? new Cart();
+        if (!File.Exists(PathFile))
+        {
+            return new Cart();
         }
+
+        var json = File.ReadAllText(PathFile);
+
+
+        var desirialize = JsonSerializer.Deserialize<Cart>(json, options);
+        //var desirialize = JsonConvert.DeserializeObject<Cart>(json);
+
+        return desirialize ?? new Cart();
+
     }
 
 }

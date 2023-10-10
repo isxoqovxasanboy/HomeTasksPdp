@@ -6,13 +6,12 @@
         public decimal TotalPriceDiscount { get; set; }
 
         //[JsonInclude]
-        public readonly List<CartItems> _items;
+        public readonly List<CartItems> _items = new List<CartItems>();
         /// <summary>
         ///     Savatchani yaratish.
         /// </summary>
         public Cart()
         {
-            _items = new List<CartItems>();
         }
 
         public void AddItem(Product product, int quantity)
